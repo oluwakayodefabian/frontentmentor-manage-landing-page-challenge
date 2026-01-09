@@ -38,7 +38,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub Repo](https://github.com/oluwakayodefabian/frontentmentor-manage-landing-page-challenge)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://frontendmentor-manage-langing-page.netlify.app/)
 
 ## My process
 
