@@ -1,22 +1,27 @@
-# Frontend Mentor - Manage landing page
+# Frontend Mentor - Manage landing page solution
 
-![Design preview for the Manage landing page coding challenge](preview.jpg)
+This is a solution to the [Manage landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/manage-landing-page-SLXqC6P5). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this landing page and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
@@ -25,72 +30,113 @@ Your users should be able to:
   - The `input` field is empty
   - The email address is not formatted correctly
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+![](./screenshot.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+### Links
 
-If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Solution URL: [GitHub Repo](https://github.com/oluwakayodefabian/frontentmentor-manage-landing-page-challenge)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+## My process
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Built with
 
-## Building your project
+- Semantic HTML5 markup
+- CSS custom properties
+- Mobile-first workflow
+- [Tailwind CSS](https://tailwindcss.com/) - Tailwind CSS
+- [Owl Carouser](https://nextjs.org/) - For testimonial Slider
+- [Alpine Js](https://alpinejs.dev/) - FOr toggling the mobile navigation popup
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### What I learned
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+I learnt how to use Tailwind CSS for the first time to style a webpage. I also made use of Alpine Js, which is a lightweight, JavaScript framework
 
-## Deploying your project
+To see how you can add code snippets, see below:
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+```html
+ <template x-if="opened">
+    <div id="overlay" class="w-full"
+      style="position:fixed; top: 0; left: 0; height: 100vh; background-color: rgba(0, 0, 0, 0.3);"></div>
+  </template>
+  <!-- Header -->
+  <header class="relative container mx-auto p-6">
+    <nav class="flex justify-between items-center">
+      <img src="/images/logo.svg" alt="Logo">
+      <div class="hidden md:flex items-center space-x-9">
+        <a href="#" class="hover:text-app-orange-400">Pricing</a>
+        <a href="#" class="hover:text-app-orange-400">Product</a>
+        <a href="#" class="hover:text-app-orange-400">About Us</a>
+        <a href="#" class="hover:text-app-orange-400">Careers</a>
+        <a href="#" class="hover:text-app-orange-400">Community</a>
+      </div>
+      <a href="#" class="btn-primary hidden md:block">Get
+        Started</a>
+      <template x-if="!opened">
+        <img src="/images/icon-hamburger.svg" alt="Hamburger" class="md:hidden cursor-pointer" @click="opened = true">
+      </template>
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+      <template x-if="opened">
+        <img src="/images/icon-close.svg" alt="Close" class="md:hidden cursor-pointer" @click="opened = false">
+      </template>
+    </nav>
+    <!-- Mobile Nav -->
+    <nav id="mobile-nav" class="shadow-xl shadow-app-blue-950 bg-white p-6 absolute rounded-sm"
+      style="width: 90%; top:140%; left: 50%; transform: translateX(-50%);" x-cloak x-show="opened"
+      @click.outside="opened = false">
+      <div class="flex flex-col items-center space-y-10">
+        <a href="#" class="hover:text-app-orange-400">Pricing</a>
+        <a href="#" class="hover:text-app-orange-400">Product</a>
+        <a href="#" class="hover:text-app-orange-400">About Us</a>
+        <a href="#" class="hover:text-app-orange-400">Careers</a>
+        <a href="#" class="hover:text-app-orange-400">Community</a>
+      </div>
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+    </nav>
+  </header>
+```
 
-## Create a custom `README.md`
+```js
+<script>
+    $('.owl-carousel').owlCarousel({
+      autoplay: true,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          nav: true
+        },
+        600: {
+          items: 3,
+          nav: false
+        },
+        1000: {
+          items: 3,
+          nav: true,
+          loop: true
+        }
+      },
+      loop: true,
+      nav: true,
+      navText: [
+        "<i class='fa fa-chevron-left left-arrow'></i>",
+        "<i class='fa fa-chevron-right right-arrow'></i>"
+      ],
+      dots: true
+    });
+  </script>
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+### Useful resources
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+- [X-data directive](https://alpinejs.dev/directives/data) - This helped me in setting up the initial  the mobile nav modal.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+## Author
 
-## Submitting your solution
+<!-- - Website - [Oluwakayodefabian](https://www.your-site.com) -->
+- Frontend Mentor - [@oluwakayodefabian](https://www.frontendmentor.io/profile/oluwakayodefabian)
+- Twitter - [@OwotokeO](https://www.twitter.com/OwotokeO)
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community).
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
-
-The more specific you are with your questions, the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi@frontendmentor.io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
