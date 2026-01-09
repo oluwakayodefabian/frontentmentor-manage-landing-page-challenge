@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+    --color-app-orange-400: hsl(12, 88%, 59%);
+    --color-app-blue-950: hsl(228, 39%, 23%);
+
+    --color-app-gray-950: hsl(233, 12%, 13%);
+    --color-app-orange-50: hsl(13, 100%, 96%);
+    --color-app-gray-50: hsl(0, 0%, 98%);
+
+    --font-vietnam-pro: "Be Vietnam Pro", sans-serif;
+    --font-app-font-size-16: 16px;
+    --font-app-font-weight-400: 400;
+    --font-app-font-weight-500: 500;
+    --font-app-font-weight-700: 700;
+    --font-app-font-line-height: 1.5;
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-app-orange-400 px-5 py-3 text-white rounded-full text-lg shadow-lg shadow-app-orange-400 transition duration-300 ease-in-out hover:scale-110 hover:bg-app-orange-50;
+    }
+
+    .btn-white {
+        @apply bg-white px-5 py-3 text-app-orange-400 rounded-full text-lg shadow-lg shadow-app-orange-400 transition duration-300 ease-in-out hover:scale-110;
+    }
+}
